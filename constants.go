@@ -1,0 +1,6 @@
+package lfstransfers3
+
+const (
+	DEFAULT_UPLOAD_PART_SIZE = int64(100000000)
+	MAXIMUM_UPLOAD_PART_SIZE = int64(5000000000)
+)
