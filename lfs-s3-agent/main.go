@@ -22,7 +22,6 @@ Usage:
 Options:
   --loglevel=<level>   Log Level [default: info].
   --part-size=<size>   Size of the Part (set to 0 do disable multipart upload) [default: 100MiB].
-  --tempdir=<tempdir>  Temporary dir to use [default: /tmp].
   --region=<region>    Region to use [default: us-east-1].
   -h --help            this message
   --version            Show version.
@@ -75,14 +74,6 @@ func main() {
 	}
 
 	tempDirPath := os.TempDir()
-
-	tempDirToUse, ok := args["--tempdir"].(string)
-
-	if ok {
-		tempDirAsString := tempDirToUse
-
-		tempDirPath = tempDirAsString
-	}
 
 	region := "us-east-1"
 
