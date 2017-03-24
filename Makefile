@@ -1,5 +1,5 @@
 NAME=lfs-s3-agent
-VERSION=0.0.1-SNAPSHOT
+VERSION=0.0.1-SNAPSHOT-$(CIRCLE_BUILD_NUM)
 
 all: package deploy
 

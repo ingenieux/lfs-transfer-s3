@@ -5,9 +5,6 @@ machine:
     PATH: "$HOME/go/bin:$HOME/share/go:${PATH}"
     GOPATH: "${HOME}/go/src"
 
-general:
-  build_dir: ~/go/src/github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}
-
 dependencies:
   pre:
     - gem install --no-ri --no-rdoc fpm
