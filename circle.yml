@@ -6,12 +6,12 @@ machine:
     GOPATH: "${HOME}/go/src"
 
 general:
-  build_dir: github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}
+  build_dir: go/src/github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}
 
 dependencies:
   pre:
     - gem install --no-ri --no-rdoc fpm
-    - mkdir -p share && curl -sSL https://storage.googleapis.com/golang/go1.8.linux-amd64.tar.gz | tar xzf- -C share
+    - mkdir -p $HOME/share && curl -sSL https://storage.googleapis.com/golang/go1.8.linux-amd64.tar.gz | tar xzf- -C $HOME/share
   override:
     - mkdir -p ~/go/src/github.com/${CIRCLE_PROJECT_USERNAME}
     - ln -s ${HOME}/${CIRCLE_PROJECT_REPONAME} ${HOME}/go/src/github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}
