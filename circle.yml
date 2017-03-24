@@ -14,12 +14,12 @@ dependencies:
     - mkdir -p ~/go/src/github.com/${CIRCLE_PROJECT_USERNAME}
     - ln -s ~/${CIRCLE_PROJECT_REPONAME} ~/go/src/github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}
     # './...' is a relative pattern which means all subdirectories
-    - ~/go/bin/go get -t -d -v github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/.
-    - ~/go/bin/go get github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/lfs-s3-transfer-agent
+    - go get -t -d -v github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/.
+    - go get github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/lfs-s3-transfer-agent
 
 test:
   pre:
-    - ~/go/bin/go vet ./...
+    - go vet ./...
 
 deployment:
   master:
