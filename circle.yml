@@ -18,6 +18,7 @@ dependencies:
     - go get github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/lfs-s3-transfer-agent
     - "echo go path: $(which go)"
     - "env"
+    - "find ~/go"
 
 test:
   pre:
