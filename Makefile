@@ -13,5 +13,5 @@ package:
 
 deploy: package
 	~/go/bin/lfs-s3-transfer-agent --version
-	curl -T *.deb -ualdrinleal:$(BINTRAY_KEY) https://api.bintray.com/content/ingenieux/lfs-transfer-s3/$(NAME)/$(VERSION)/$(shell basename *.deb)
-	curl -T *.rpm -ualdrinleal:$(BINTRAY_KEY) https://api.bintray.com/content/ingenieux/lfs-transfer-s3/$(NAME)/$(VERSION)/$(shell basename *.rpm)
+	curl -T *.deb -ualdrinleal:$(BINTRAY_APIKEY) https://api.bintray.com/content/ingenieux/lfs-transfer-s3/$(NAME)/$(VERSION)/$(shell basename *.deb)
+	curl -T *.rpm -ualdrinleal:$(BINTRAY_APIKEY) https://api.bintray.com/content/ingenieux/lfs-transfer-s3/$(NAME)/$(VERSION)/$(shell basename *.rpm)
