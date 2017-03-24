@@ -6,7 +6,7 @@ machine:
     GOPATH: "${HOME}/go/src"
 
 general:
-  build_dir: go/src/github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}
+  build_dir: ~/go/src/github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}
 
 dependencies:
   pre:
