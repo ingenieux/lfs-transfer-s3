@@ -25,5 +25,5 @@ deployment:
   master:
     branch: master
     commands:
-      - echo "app: $(which lfs-s3-transfer-agent)"
-      - make -p
+      - "echo app: $(which lfs-s3-transfer-agent)"
+      - "make -p"
