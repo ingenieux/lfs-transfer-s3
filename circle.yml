@@ -12,7 +12,7 @@ dependencies:
   pre:
     - gem install --no-ri --no-rdoc fpm
     - mkdir -p $HOME/share
-    - (cd $HOME/share ; curl -sSL https://storage.googleapis.com/golang/go1.8.linux-amd64.tar.gz)
+    - (cd $HOME/share ; curl -sSL https://storage.googleapis.com/golang/go1.8.linux-amd64.tar.gz | tar xzf - )
   override:
     - mkdir -p ~/go/src/github.com/${CIRCLE_PROJECT_USERNAME}
     - ln -s ${HOME}/${CIRCLE_PROJECT_REPONAME} ${HOME}/go/src/github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}
