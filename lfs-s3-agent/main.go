@@ -8,6 +8,7 @@ import (
 	"github.com/ingenieux/lfs-transfer-s3"
 	"os"
 	"reflect"
+	"runtime"
 	"strings"
 )
 
@@ -36,7 +37,9 @@ func main() {
 		argsToUse = strings.Split(os.Args[1], " ")
 	}
 
-	version := fmt.Sprintf("0.0.2@%s", reflect.TypeOf(lfstransfers3.TransferAgent{}).PkgPath())
+	version := fmt.Sprintf("0.0.2@%s(%s)",
+		reflect.TypeOf(lfstransfers3.TransferAgent{}).PkgPath(),
+		runtime.Version())
 
 	args, _ := docopt.Parse(DOC, argsToUse, true, version, true, true)
 
