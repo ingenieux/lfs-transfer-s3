@@ -2,7 +2,7 @@ machine:
   environment:
     # GOROOT is not set by default
     GOROOT: "$HOME/share/go"
-    PATH: "$HOME/go/bin:$HOME/share/go:${PATH}"
+    PATH: "$HOME/go/bin:$HOME/share/go/bin:${PATH}"
     GOPATH: "${HOME}/go"
 
 dependencies:
@@ -14,19 +14,16 @@ dependencies:
     - mkdir -p ~/go/src/github.com/${CIRCLE_PROJECT_USERNAME}
     - ln -s ~/${CIRCLE_PROJECT_REPONAME} ~/go/src/github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}
     # './...' is a relative pattern which means all subdirectories
-    - go get -t -d -v github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/.
-    - go get github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/lfs-s3-transfer-agent
-    - "echo go path: $(which go)"
-    - "env"
-    - "find ~/go"
+    - ~/go/bin/go get -t -d -v github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/.
+    - ~/go/bin/go get github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/lfs-s3-transfer-agent
 
 test:
   pre:
-    - go vet ./...
+    - ~/go/bin/go vet ./...
 
 deployment:
   master:
     branch: master
     commands:
       - "echo app: $(which lfs-s3-transfer-agent)"
-      - "make -p"
+      - "make clean package deploy"
