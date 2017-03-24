@@ -9,6 +9,6 @@ package:
 	fpm -s dir -t rpm -n $(NAME) -v $(VERSION) `which lfs-s3-agent`
 
 deploy:
-    ls -la
-    # curl -T deb -ualdrinleal:$API_KEY https://api.bintray.com/content/aldrinleal/deb/lfs-s3-agent/$VERSION/deb
-    # curl -T pm -ualdrinleal:$API_KEY https://api.bintray.com/content/aldrinleal/deb/lfs-s3-agent/$VERSION/deb
+	ls -la
+	# curl -T deb -ualdrinleal:$API_KEY https://api.bintray.com/content/aldrinleal/deb/lfs-s3-agent/$VERSION/deb
+	# curl -T pm -ualdrinleal:$API_KEY https://api.bintray.com/content/aldrinleal/deb/lfs-s3-agent/$VERSION/deb
