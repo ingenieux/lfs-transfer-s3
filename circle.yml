@@ -15,7 +15,7 @@ dependencies:
     - ln -s ~/${CIRCLE_PROJECT_REPONAME} ~/go/src/github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}
     # './...' is a relative pattern which means all subdirectories
     - go get -t -d -v github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/.
-    - go get github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/lfs-s3-agent
+    - go get github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/lfs-s3-transfer-agent
 
 test:
   pre:

@@ -16,9 +16,9 @@ const DOC = `
 lfs-s3-agent.
 
 Usage:
-  lfs-s3-agent [options]
-  lfs-s3-agent -h | --help
-  lfs-s3-agent --version
+  lfs-s3-transfer-agent [options]
+  lfs-s3-transfer-agent -h | --help
+  lfs-s3-transfer-agent --version
 
 Options:
   --loglevel=<level>   Log Level [default: info].
