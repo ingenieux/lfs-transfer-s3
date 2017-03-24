@@ -3,7 +3,7 @@ machine:
     # GOROOT is not set by default
     GOROOT: "$HOME/share/go"
     PATH: "$HOME/go/bin:$HOME/share/go:${PATH}"
-    GOPATH: "${HOME}/go/src"
+    GOPATH: "${HOME}/go"
 
 dependencies:
   pre:
