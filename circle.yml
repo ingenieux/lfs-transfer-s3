@@ -12,11 +12,10 @@ dependencies:
     - (cd $HOME/share ; curl -sSL https://storage.googleapis.com/golang/go1.8.linux-amd64.tar.gz | tar xzf - )
   override:
     - mkdir -p ~/go/src/github.com/${CIRCLE_PROJECT_USERNAME}
-    - ln -s ${HOME}/${CIRCLE_PROJECT_REPONAME} ${HOME}/go/src/github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}
+    - ln -s ~/${CIRCLE_PROJECT_REPONAME} ~/go/src/github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}
     # './...' is a relative pattern which means all subdirectories
     - go get -t -d -v github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/.
     - go get github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/lfs-s3-agent
-    - go build -v
 
 test:
   pre:
