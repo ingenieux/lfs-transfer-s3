@@ -1,0 +1,30 @@
+machine:
+  environment:
+    # GOROOT is not set by default
+    GOROOT: "$HOME/share/go"
+    PATH: "$HOME/go/bin:$HOME/share/go:${PATH}"
+    GOPATH: "${HOME}/go/src"
+
+general:
+  build_dir: github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}
+
+dependencies:
+  pre:
+    - gem install --no-ri --no-rdoc fpm
+    - mkdir -p share && curl -sSL https://storage.googleapis.com/golang/go1.8.linux-amd64.tar.gz | tar xzf- -C share
+  override:
+	- mkdir -p ~/go/src/github.com/${CIRCLE_PROJECT_USERNAME}
+	- ln -s ${HOME}/${CIRCLE_PROJECT_REPONAME} ${HOME}/go/src/github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}
+    # './...' is a relative pattern which means all subdirectories
+    - go get -t -d -v ./...
+    - go build -v
+
+test:
+  pre:
+    - go vet ./...
+
+deployment:
+  master:
+    branch: master
+    commands:
+      - make
